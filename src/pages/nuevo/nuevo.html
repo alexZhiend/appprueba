@@ -1,0 +1,84 @@
+
+<ion-header>
+
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Formulario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item>
+          <ion-label>Instancia</ion-label>
+          <ion-select [(ngModel)]="selectIns">
+            <ion-option *ngFor="let instancia of listaInstancias" value="{{instancia.nombre}}">{{instancia.nombre}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Especialidad</ion-label>
+        <ion-select [(ngModel)]="selectEsp">
+          <ion-option *ngFor="let especialidad of listaEspecialidades" 
+          value="{{especialidad.nombre}}">{{especialidad.nombre}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+  <ion-list> 
+    <ion-item>
+    <ion-label>Año</ion-label>  
+    <ion-select [(ngModel)]="year">
+        <ion-option>1989</ion-option>
+        <ion-option>1990</ion-option>
+        <ion-option>1991</ion-option>
+        <ion-option>1992</ion-option>
+        <ion-option>1993</ion-option>
+        <ion-option checked="true">1994</ion-option>
+        <ion-option>1995</ion-option>
+        <ion-option>1996</ion-option>
+        <ion-option>1997</ion-option>
+        <ion-option>1998</ion-option>
+        <ion-option>1999</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> 
+
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Nº de Expediente</ion-label>
+      <ion-input type="number" [(ngModel)]="numExp"></ion-input>
+    </ion-item>    
+  </ion-list>
+
+
+<button ion-button color="danger" full (click)="enviarSlctd()">
+  Solicitar
+</button>      
+
+  <ion-list>
+    <ion-list-header>
+      Characters
+    </ion-list-header>
+
+</ion-list>
+
+
+    <ion-list>
+      <button ion-item *ngFor="let instancia of listaInstancias" (click)="verCorreo(correo)">
+      <h2>{{instancia.nombre}}</h2>
+      <!-- <h3>{{correo.asunto}}</h3> -->
+      <p>{{instancia.key}}</p>
+      <!-- <p>{{correo.mensaje}}</p> -->
+      </button>
+    </ion-list>
+
+</ion-content>
