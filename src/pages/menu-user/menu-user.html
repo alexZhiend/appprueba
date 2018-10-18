@@ -1,0 +1,34 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar color="danger">
+            <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <img src="../assets/imgs/LOGO_PODER_JUDICIAL.jpg" alt="">  
+        <ion-list>
+            <button color="danger" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p.component)">
+                <ion-icon item-left name="{{p.icon}}"></ion-icon>
+                {{p.titulo}}
+            </button>
+        </ion-list>
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar>
+            <ion-row align-items-center>
+                <ion-col>
+                    {{ username }}
+                </ion-col>
+                <ion-col>
+                    <button ion-button full clear icon-left (click)="logout()">
+                        <ion-icon name="sign-out">
+                        </ion-icon>
+                        Logout
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-toolbar>
+    </ion-footer>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

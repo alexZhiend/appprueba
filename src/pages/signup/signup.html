@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar  color="danger">
+    <ion-title>signup</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form (ngSubmit)="signup()" [formGroup]="form">
+        <ion-row>
+          <ion-col>
+            <ion-list inset>
+              <ion-item>
+                <ion-label fixed>Usuario</ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label fixed>Email</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label fixed>Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <div padding-horizontal>
+          <button ion-button full  color="danger" type="submit" [disabled]="!form.valid">Registrarme</button>
+        </div>
+      </form>
+</ion-content>

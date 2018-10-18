@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LoginGooglePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { MenuUserPage } from '../menu-user/menu-user';
 
 @IonicPage()
 @Component({
@@ -22,4 +16,7 @@ export class LoginGooglePage {
     console.log('ionViewDidLoad LoginGooglePage');
   }
 
+  google() {
+    this.navCtrl.setRoot(MenuUserPage);
+  }
 }

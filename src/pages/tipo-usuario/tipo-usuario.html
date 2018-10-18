@@ -1,9 +1,5 @@
 <ion-header>
-
-  <ion-navbar color="danger">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar color="danger">  
     <ion-title>Bienvenido</ion-title>
   </ion-navbar>
 </ion-header>
@@ -17,11 +13,11 @@
     <h5 padding position="center" text-center>
       ¿Quién eres?
     </h5>
-    <button ion-button color="danger" full>
+    <button ion-button color="danger" full (click)="solicitante()">
       Solicitante
     </button>
     <h5 text-center>ó</h5>
-    <button ion-button color="danger" full>
+    <button ion-button color="danger" full (click)="administrativo()">
       Administrativo
     </button>
   </div>

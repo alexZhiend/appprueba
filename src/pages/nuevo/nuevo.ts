@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, DateTime } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { v4 as uuid } from 'uuid';
-import { Generador } from '../../denominacion/generador';
+import { GeneradorProvider } from '../../providers/data/generador.provider';
 
 @IonicPage()
 @Component({
@@ -22,7 +22,7 @@ export class NuevoPage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-            private generador: Generador) {
+            private generador: GeneradorProvider) {
     this.loadData();
   }
 
@@ -39,7 +39,7 @@ export class NuevoPage {
 
 
   enviarSlctd(){
-    //let e = this.generador.nombre(this.selectEsp,this.selectIns);
+    //let e = this.generador.getNumberGenertor(this.selectEsp,this.selectIns);
 
     let model = { key: uuid(),
                   Especialidad: this.selectEsp ,

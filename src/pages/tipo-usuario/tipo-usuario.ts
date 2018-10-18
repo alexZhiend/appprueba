@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TipoUsuarioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { LoginGooglePage } from '../login-google/login-google';
+import { LoginCredentialPage } from '../login-credential/login-credential';
 @IonicPage()
 @Component({
   selector: 'page-tipo-usuario',
@@ -20,6 +14,14 @@ export class TipoUsuarioPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TipoUsuarioPage');
+  }
+
+  solicitante() {
+    this.navCtrl.push(LoginGooglePage)
+  }
+
+  administrativo() {
+    this.navCtrl.push(LoginCredentialPage);
   }
 
 }
