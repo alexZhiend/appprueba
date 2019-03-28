@@ -1,8 +1,11 @@
+import { ConfirmPage } from './../confirm/confirm';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { v4 as uuid } from 'uuid';
 import { GeneradorProvider } from '../../providers/data/generador.provider';
+import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
+
 
 @IonicPage()
 @Component({
@@ -19,10 +22,11 @@ export class NuevoPage {
   selectEsp: string='';
   year: any; 
   numExp:number;
+  keysol: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-            private generador: GeneradorProvider) {
+              private generador: GeneradorProvider) {
     this.loadData();
   }
 
@@ -39,7 +43,7 @@ export class NuevoPage {
 
 
   enviarSlctd(){
-    //let e = this.generador.getNumberGenertor(this.selectEsp,this.selectIns);
+    let e = this.generador.getNumberGenertor(this.selectEsp,this.selectIns);
 
     let model = { key: uuid(),
                   Especialidad: this.selectEsp ,
@@ -48,6 +52,8 @@ export class NuevoPage {
                   año: this.year,
                   numero: this.numExp};
     firebase.database().ref('Expedientes/' + model.key).set(model);
+    this.keysol= model.key;
+    this.navCtrl.push(ConfirmPage,this.keysol)
 /*     var solicitudRef = firebase.database().ref().child("");
     solicitudRef.push({selectIns: });  */
   }

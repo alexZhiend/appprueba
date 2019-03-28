@@ -64,21 +64,5 @@
   Solicitar
 </button>      
 
-  <ion-list>
-    <ion-list-header>
-      Characters
-    </ion-list-header>
-
-</ion-list>
-
-
-    <ion-list>
-      <button ion-item *ngFor="let instancia of listaInstancias" (click)="verCorreo(correo)">
-      <h2>{{instancia.nombre}}</h2>
-      <!-- <h3>{{correo.asunto}}</h3> -->
-      <p>{{instancia.key}}</p>
-      <!-- <p>{{correo.mensaje}}</p> -->
-      </button>
-    </ion-list>
 
 </ion-content>

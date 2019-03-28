@@ -1,3 +1,4 @@
+import { DataService } from './../../providers/data/data.service';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -13,7 +14,10 @@ import { SignupPage } from '../signup/signup';
 export class LoginCredentialPage implements OnInit{
   loginForm: FormGroup;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private formBuilder: FormBuilder,
+              private dataService: DataService) {
   }
 
   ionViewDidLoad() {
@@ -35,7 +39,25 @@ export class LoginCredentialPage implements OnInit{
     if (!this.loginForm.valid) {
       return;
     }
-    this.navCtrl.setRoot(MenuAdminPage)
+    this.dataService.auth().signIn(this.loginForm.value)
+      .then((res: any) => {
+        const d = res.user.providerData[0];
+        d.key = res.user.uid;
+        d.issueDate = new Date().toISOString();
+        this.saveSession(d);
+        this.navCtrl.setRoot(MenuAdminPage);
+      }//, error => {
+       // this.showError("Access Denied");
+      ).catch(err => {
+        console.log("no se cargo el mensaje");
+        //this.global.showError("Access Denied");
+      });
+  }
+
+  saveSession(data) {
+    this.dataService.auth().addSession(data)
+      .then(res => { }, err => console.error(err))
+      .catch(err => console.error(err));
   }
 
   google() {
@@ -44,4 +66,6 @@ export class LoginCredentialPage implements OnInit{
   signup() {
     this.navCtrl.push(SignupPage)
   }
+
+
 }

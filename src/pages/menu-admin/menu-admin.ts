@@ -2,8 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { ArchivadorPage } from '../archivador/archivador';
 import { TipoUsuarioPage } from '../tipo-usuario/tipo-usuario';
-import { NuevoPage } from '../nuevo/nuevo';
-import { LoginGooglePage } from '../login-google/login-google';
+
 
 @IonicPage()
 @Component({
@@ -17,6 +16,7 @@ export class MenuAdminPage implements OnInit {
   public rootPage: any;
 
   username: string;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
   ionViewDidLoad() {
@@ -27,9 +27,7 @@ export class MenuAdminPage implements OnInit {
     this.rootPage = ArchivadorPage;
     this.username = "ADMINISTRADOR";
     this.pages = [
-      { titulo: 'Formulario', component: NuevoPage, icon: 'person' },
-      { titulo: 'Archivador', component: ArchivadorPage, icon: 'bookmarks' },
-      { titulo: 'Iniciar sesion', component: LoginGooglePage, icon: 'contact' }
+      { titulo: 'Archivador', component: ArchivadorPage, icon: 'bookmarks' }
     ];
   }
 

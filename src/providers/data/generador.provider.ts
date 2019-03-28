@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-
+import * as firebase from 'firebase';
+ 
 export const pathInstancia = 'Instancia';
+
 
 @Injectable()
 export class GeneradorProvider {
+
+selectIns : any;
 
     constructor() {
     }

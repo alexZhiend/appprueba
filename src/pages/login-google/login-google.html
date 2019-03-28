@@ -9,11 +9,21 @@
 
 </ion-header>
 
+<!-- <ion-content padding>
+  <div padding-horizontal *ngIf="(user | async ) || {} as user">
+      <button ion-button *ngIf="!user.uid"  (tap)="google()">
+        login with google
+      </button>
+      <div *ngIf="user.uid">
+        tu ya estas registrado con {{user.uid}}
+      </div>
+    </div>
+</ion-content> -->
 
 <ion-content padding>
     <div padding-horizontal>
         <ion-list>
-          <button ion-button icon-left block clear (click)="google()">
+          <button ion-button icon-left block clear (click)="googleweb()">
             <ion-icon name="logo-google"></ion-icon>
             Log in with Google
           </button>        
